@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="1" tests="1" time="0.054059">
-<testcase classname="Checkout" name="Checkout a banana" time="0.054059">
-<skipped><![CDATA[Given the price of a "banana" is 40c........................................passed
-When I checkout 1 "banana"..................................................pending
-Then the total price should be 40c..........................................skipped
-]]></skipped>
-</testcase>
-</testsuite>

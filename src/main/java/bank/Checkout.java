@@ -1,4 +1,4 @@
-package implementation;
+package bank;
 
 public class Checkout {
 	

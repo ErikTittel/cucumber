@@ -3,10 +3,9 @@ package step_definitions;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-import implementation.Checkout;
+import bank.Checkout;
 
 import cucumber.api.java.en.*;
-import cucumber.api.PendingException;
 
 import java.util.Map;
 import java.util.HashMap;

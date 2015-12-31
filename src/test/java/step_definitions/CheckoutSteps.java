@@ -12,21 +12,21 @@ import java.util.HashMap;
 
 public class CheckoutSteps {
 
-  private Checkout checkout = new Checkout();
-  private Map<String, Integer> prices = new HashMap<>();
+    private Checkout checkout = new Checkout();
+    private Map<String, Integer> prices = new HashMap<>();
 
-  @Given("^the price of a \"([^\"]*)\" is (\\d+)c$")
-  public void thePriceOfAIsC(String name, int price) {
-	prices.put(name, price);
-  }
+    @Given("^the price of a \"([^\"]*)\" is (\\d+)c$")
+    public void thePriceOfAIsC(String name, int price) {
+        prices.put(name, price);
+    }
 
-  @When("^I checkout (\\d+) \"([^\"]*)\"$")
-  public void iCheckout(int itemCount, String itemName) {
-	checkout.add(itemCount, prices.get(itemName));
-  }
+    @When("^I checkout (\\d+) \"([^\"]*)\"$")
+    public void iCheckout(int itemCount, String itemName) {
+        checkout.add(itemCount, prices.get(itemName));
+    }
 
-  @Then("^the total price should be (\\d+)c$")
-  public void theTotalPriceShouldBeC(int total) {
-    assertThat(checkout.total(), is(total));
-  }
+    @Then("^the total price should be (\\d+)c$")
+    public void theTotalPriceShouldBeC(int total) {
+        assertThat(checkout.total(), is(total));
+    }
 }

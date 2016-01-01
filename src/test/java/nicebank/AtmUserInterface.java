@@ -2,7 +2,7 @@ package nicebank;
 
 import hooks.ServerHooks;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 /**
@@ -13,9 +13,8 @@ public class AtmUserInterface implements Teller {
     private final EventFiringWebDriver webDriver;
 
     public AtmUserInterface() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-        // FIXME WebDriver starts browser but doesn't get any response...
-        webDriver = new EventFiringWebDriver(new ChromeDriver());
+        // requires Selenium 2.41.0 and Firefox 28.0
+        webDriver = new EventFiringWebDriver(new FirefoxDriver());
     }
 
     @Override

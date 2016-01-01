@@ -26,7 +26,7 @@ public class WithdrawalServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.getWriter().println(
-                "<thml><head><title>Nice Bank ATM</title></head>" +
+                "<html><head><title>Nice Bank ATM</title></head>" +
                 "<body>Please take your $" + amount + "</body></html>"
         );
     }

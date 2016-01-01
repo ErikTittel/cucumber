@@ -1,8 +1,5 @@
 package nicebank;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * @author Erik
  */
@@ -29,6 +26,19 @@ public class Money {
         return new Money(totalDollars, totalCents);
     }
 
+    public Money minus(Money amount) {
+        int totalDollars = dollars - amount.dollars;
+        int totalCents = cents - amount.cents;
+        if (totalCents < 0) {
+            totalDollars--;
+            totalCents = 100 + totalCents;
+        }
+        if (totalDollars < 0) {
+            throw new RuntimeException("negative amount not supported yet");
+        }
+        return new Money(totalDollars, totalCents);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,9 +59,6 @@ public class Money {
 
     @Override
     public String toString() {
-        return "Money{" +
-                "dollars=" + dollars +
-                ", cents=" + cents +
-                '}';
+        return "$" + dollars + '.' + cents;
     }
 }

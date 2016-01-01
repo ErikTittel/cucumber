@@ -6,9 +6,6 @@ import static org.hamcrest.Matchers.is;
 import cucumber.api.java.en.Then;
 import support.KnowsTheDomain;
 
-/**
- * @author Erik
- */
 public class CashSlotSteps {
 
     private final KnowsTheDomain helper;

@@ -2,10 +2,6 @@ package step_definitions;
 
 //import cucumber.api.java8.En;
 
-
-/**
- * @author Erik
- */
 public class CheckoutStepsJava8 {
 //public class CheckoutStepsJava8 implements En {
 

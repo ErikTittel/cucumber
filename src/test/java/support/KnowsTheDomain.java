@@ -4,15 +4,15 @@ import nicebank.Account;
 import nicebank.AtmUserInterface;
 import nicebank.CashSlot;
 import nicebank.Teller;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-/**
- * @author Erik
- */
 public class KnowsTheDomain {
 
     private Account myAccount;
     private CashSlot cashSlot;
     private Teller teller;
+    private EventFiringWebDriver webDriver;
 
     public Account getMyAccount() {
         if (myAccount == null) {
@@ -29,8 +29,16 @@ public class KnowsTheDomain {
 
     public Teller getTeller() {
         if (teller == null) {
-            teller = new AtmUserInterface();
+            teller = new AtmUserInterface(getWebDriver());
         }
         return teller;
+    }
+
+    public EventFiringWebDriver getWebDriver() {
+        if (webDriver == null) {
+            // requires Selenium 2.41.0 and Firefox 28.0
+            webDriver = new EventFiringWebDriver(new FirefoxDriver());
+        }
+        return webDriver;
     }
 }

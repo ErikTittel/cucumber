@@ -1,8 +1,5 @@
 package nicebank;
 
-/**
- * @author Erik
- */
 public class AutomatedTeller implements Teller {
 
     private CashSlot cashSlot;

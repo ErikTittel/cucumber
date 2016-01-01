@@ -9,9 +9,6 @@ import cucumber.api.java.en.Then;
 import support.KnowsTheDomain;
 import transforms.MoneyConverter;
 
-/**
- * @author Erik
- */
 public class AccountSteps {
 
     private final KnowsTheDomain helper;

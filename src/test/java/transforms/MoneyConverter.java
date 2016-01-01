@@ -3,9 +3,6 @@ package transforms;
 import cucumber.api.Transformer;
 import nicebank.Money;
 
-/**
- * @author Erik
- */
 public class MoneyConverter extends Transformer<Money> {
 
     @Override

@@ -2,27 +2,22 @@ package nicebank;
 
 import hooks.ServerHooks;
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.WebDriver;
 
-/**
- * @author Erik
- */
 public class AtmUserInterface implements Teller {
 
-    private final EventFiringWebDriver webDriver;
+    private WebDriver webDriver;
 
-    public AtmUserInterface() {
-        // requires Selenium 2.41.0 and Firefox 28.0
-        webDriver = new EventFiringWebDriver(new FirefoxDriver());
+    public AtmUserInterface(WebDriver webDriver) {
+        this.webDriver = webDriver;
     }
 
     @Override
     public void withdrawFrom(Account account, int dollars) {
         try {
             webDriver.get("http://localhost:" + ServerHooks.PORT);
-            webDriver.findElement(By.id("Amount")).sendKeys(String.valueOf(dollars));
-            webDriver.findElement(By.id("Withdraw")).click();
+            webDriver.findElement(By.id("amount")).sendKeys(String.valueOf(dollars));
+            webDriver.findElement(By.id("withdraw")).click();
         } finally {
             webDriver.close();
         }

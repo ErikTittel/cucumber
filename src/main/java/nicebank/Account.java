@@ -1,8 +1,5 @@
 package nicebank;
 
-/**
- * @author Erik
- */
 public class Account {
 
     private Money balance = new Money();

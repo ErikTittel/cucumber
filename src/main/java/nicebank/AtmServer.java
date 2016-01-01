@@ -4,14 +4,11 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-/**
- * @author Erik
- */
 public class AtmServer {
 
     private final Server server;
 
-    public AtmServer(int port) {
+    public AtmServer(int port, CashSlot cashSlot, Account account) {
         server = new Server(port);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -19,6 +16,7 @@ public class AtmServer {
         server.setHandler(context);
 
         context.addServlet(new ServletHolder(new AtmServlet()), "/*");
+        context.addServlet(new ServletHolder(new WithdrawalServlet(cashSlot, account)), "/withdraw");
     }
 
     public void start() throws Exception {
@@ -28,9 +26,10 @@ public class AtmServer {
 
     public void stop() throws Exception {
         server.stop();
+        System.out.println("Server shutdown");
     }
 
-    public static void main(String[] args) throws Exception {
-        new AtmServer(9988).start();
-    }
+//    public static void main(String[] args) throws Exception {
+//        new AtmServer(9988).start();
+//    }
 }

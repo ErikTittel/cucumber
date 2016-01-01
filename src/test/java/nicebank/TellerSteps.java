@@ -3,9 +3,6 @@ package nicebank;
 import cucumber.api.java.en.When;
 import support.KnowsTheDomain;
 
-/**
- * @author Erik
- */
 public class TellerSteps {
 
     private final KnowsTheDomain helper;

@@ -4,9 +4,6 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
-/**
- * @author Erik
- */
 public class SomeTestHooks {
 
     @Before(value = "@hooked", order = 10)

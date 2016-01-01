@@ -1,8 +1,5 @@
 package nicebank;
 
-/**
- * @author Erik
- */
 public class Money {
 
     private int dollars;

@@ -1,8 +1,5 @@
 package nicebank;
 
-/**
- * @author Erik
- */
 public class CashSlot {
 
     private int contents;

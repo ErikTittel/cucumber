@@ -9,12 +9,8 @@ import javax.inject.Inject;
 
 public class CashSlotSteps {
 
-    private final CashSlot cashSlot;
-
     @Inject
-    public CashSlotSteps(CashSlot cashSlot) {
-        this.cashSlot = cashSlot;
-    }
+    private CashSlot cashSlot;
 
     @Then("^\\$(\\d+) should be dispensed$")
     public void $ShouldBeDispensed(int dollars) throws Throwable {

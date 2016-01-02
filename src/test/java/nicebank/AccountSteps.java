@@ -14,12 +14,8 @@ import javax.inject.Inject;
 
 public class AccountSteps {
 
-    private final Account account;
-
     @Inject
-    public AccountSteps(Account account) {
-        this.account = account;
-    }
+    private Account account;
 
     @Given("^my account has been credited with (\\$\\d+\\.\\d+)$")
     public void myAccountHasBeenCreditedWith$(@Transform(MoneyConverter.class) Money amount) {

@@ -9,14 +9,10 @@ import javax.inject.Inject;
 
 public class WebDriverHooks {
 
+    @Inject
     private MyWebDriver webDriver;
 
-    @Inject
-    public WebDriverHooks(MyWebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
-
-    @After("@screenshot")
+    @After("@web")
     public void finish(Scenario scenario) {
         try {
             byte[] screenshot = webDriver.getScreenshotAs(OutputType.BYTES);

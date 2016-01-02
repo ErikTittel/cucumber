@@ -4,19 +4,29 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
 public class AtmServer {
 
-    private final Server server;
+    public static final int PORT = 8887;
 
-    public AtmServer(int port, CashSlot cashSlot, Account account) {
-        server = new Server(port);
+    private Server server;
+    @Inject
+    private AtmServlet atmServlet;
+    @Inject
+    private WithdrawalServlet withdrawalServlet;
+
+    @PostConstruct
+    public void init() {
+        server = new Server(PORT);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
 
-        context.addServlet(new ServletHolder(new AtmServlet()), "/*");
-        context.addServlet(new ServletHolder(new WithdrawalServlet(cashSlot, account)), "/withdraw");
+        context.addServlet(new ServletHolder(atmServlet), "/*");
+        context.addServlet(new ServletHolder(withdrawalServlet), "/withdraw");
     }
 
     public void start() throws Exception {

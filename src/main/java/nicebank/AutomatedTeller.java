@@ -6,12 +6,8 @@ import javax.inject.Singleton;
 @Singleton
 public class AutomatedTeller implements Teller {
 
-    private CashSlot cashSlot;
-
     @Inject
-    public AutomatedTeller(CashSlot cashSlot) {
-        this.cashSlot = cashSlot;
-    }
+    private CashSlot cashSlot;
 
     @Override
     public void withdrawFrom(Account account, int dollars) {

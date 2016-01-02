@@ -12,21 +12,15 @@ import javax.inject.Singleton;
 @Singleton
 public class ServerHooks {
 
-    public static final int PORT = 8887;
-
-    private AtmServer server;
-    private Account account;
-    private CashSlot cashSlot;
-
     @Inject
-    public ServerHooks(Account account, CashSlot cashSlot) {
-        this.account = account;
-        this.cashSlot = cashSlot;
-    }
+    private AtmServer server;
+    @Inject
+    private Account account;
+    @Inject
+    private CashSlot cashSlot;
 
     @Before("@web")
     public void startServer() throws Exception {
-        server = new AtmServer(PORT, cashSlot, account);
         server.start();
     }
 

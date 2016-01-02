@@ -2,26 +2,26 @@ package hooks;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import nicebank.Account;
 import nicebank.AtmServer;
-import support.KnowsTheAccount;
-import support.KnowsTheCashSlot;
+import nicebank.CashSlot;
 
 public class ServerHooks {
 
     public static final int PORT = 8887;
 
     private AtmServer server;
-    private KnowsTheAccount helper;
-    private KnowsTheCashSlot cashSlotHelper;
+    private Account account;
+    private CashSlot cashSlot;
 
-    public ServerHooks(KnowsTheAccount helper, KnowsTheCashSlot cashSlotHelper) {
-        this.helper = helper;
-        this.cashSlotHelper = cashSlotHelper;
+    public ServerHooks(Account account, CashSlot cashSlot) {
+        this.account = account;
+        this.cashSlot = cashSlot;
     }
 
     @Before("@web")
     public void startServer() throws Exception {
-        server = new AtmServer(PORT, cashSlotHelper.getCashSlot(), helper.getMyAccount());
+        server = new AtmServer(PORT, cashSlot, account);
         server.start();
     }
 

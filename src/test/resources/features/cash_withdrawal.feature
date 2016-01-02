@@ -1,4 +1,5 @@
 Feature: Cash Withdrawal
+  #@web - for testing through web ui, change access to UI in TellerSteps
   @simplelog
   Scenario: Successful withdrawal from an account in credit
     Given my account has been credited with $100.00

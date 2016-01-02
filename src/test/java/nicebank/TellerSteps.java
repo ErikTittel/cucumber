@@ -1,24 +1,21 @@
 package nicebank;
 
-import static support.TestLayer.BACKEND;
-
 import cucumber.api.java.en.When;
-import support.KnowsTheAccount;
-import support.KnowsTheTeller;
 
 public class TellerSteps {
 
-    private final KnowsTheAccount accountHelper;
-    private final KnowsTheTeller tellerHelper;
+    private final Account account;
+    private final Teller teller;
 
-    public TellerSteps(KnowsTheAccount accountHelper, KnowsTheTeller tellerHelper) {
-        this.accountHelper = accountHelper;
-        this.tellerHelper = tellerHelper;
+    // change AutomatedTeller to AtmUserInterface for testing throw web ui, and annotate the scenario with @web
+    public TellerSteps(Account account, AutomatedTeller teller) {
+        this.account = account;
+        this.teller = teller;
     }
 
     @When("^I withdraw \\$(\\d+)$")
     public void iWithdraw$(int dollars) throws Throwable {
-        tellerHelper.getTeller(BACKEND).withdrawFrom(accountHelper.getMyAccount(), dollars);
+        teller.withdrawFrom(account, dollars);
     }
 
 }

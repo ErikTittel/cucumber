@@ -4,18 +4,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import cucumber.api.java.en.Then;
-import support.KnowsTheCashSlot;
 
 public class CashSlotSteps {
 
-    private final KnowsTheCashSlot helper;
+    private final CashSlot cashSlot;
 
-    public CashSlotSteps(KnowsTheCashSlot helper) {
-        this.helper = helper;
+    public CashSlotSteps(CashSlot cashSlot) {
+        this.cashSlot = cashSlot;
     }
 
     @Then("^\\$(\\d+) should be dispensed$")
     public void $ShouldBeDispensed(int dollars) throws Throwable {
-        assertThat(helper.getCashSlot().contents(), is(dollars));
+        assertThat(cashSlot.contents(), is(dollars));
     }
 }

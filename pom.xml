@@ -57,11 +57,21 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- DI -->
         <dependency>
             <groupId>info.cukes</groupId>
-            <artifactId>cucumber-picocontainer</artifactId>
+            <artifactId>cucumber-weld</artifactId>
             <version>${cucumber.version}</version>
-            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se</artifactId>
+            <version>2.3.2.Final</version>
         </dependency>
     </dependencies>
 

@@ -5,10 +5,13 @@ import static org.hamcrest.Matchers.is;
 
 import cucumber.api.java.en.Then;
 
+import javax.inject.Inject;
+
 public class CashSlotSteps {
 
     private final CashSlot cashSlot;
 
+    @Inject
     public CashSlotSteps(CashSlot cashSlot) {
         this.cashSlot = cashSlot;
     }

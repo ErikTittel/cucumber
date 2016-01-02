@@ -5,15 +5,18 @@ import cucumber.api.java.After;
 import org.openqa.selenium.OutputType;
 import support.MyWebDriver;
 
+import javax.inject.Inject;
+
 public class WebDriverHooks {
 
     private MyWebDriver webDriver;
 
+    @Inject
     public WebDriverHooks(MyWebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
-    @After("@web")
+    @After("@screenshot")
     public void finish(Scenario scenario) {
         try {
             byte[] screenshot = webDriver.getScreenshotAs(OutputType.BYTES);

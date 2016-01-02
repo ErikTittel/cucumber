@@ -4,6 +4,9 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import nicebank.TransactionProcessor;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class BackgroundProcessHooks {
 
     private Thread transactionProcessorThread;

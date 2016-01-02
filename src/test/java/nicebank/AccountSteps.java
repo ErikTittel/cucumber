@@ -10,10 +10,13 @@ import transforms.MoneyConverter;
 
 import java.util.function.Supplier;
 
+import javax.inject.Inject;
+
 public class AccountSteps {
 
     private final Account account;
 
+    @Inject
     public AccountSteps(Account account) {
         this.account = account;
     }

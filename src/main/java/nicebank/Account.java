@@ -1,5 +1,8 @@
 package nicebank;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class Account {
 
     private TransactionQueue queue = new TransactionQueue();

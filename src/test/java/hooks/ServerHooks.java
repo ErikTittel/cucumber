@@ -6,6 +6,10 @@ import nicebank.Account;
 import nicebank.AtmServer;
 import nicebank.CashSlot;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+@Singleton
 public class ServerHooks {
 
     public static final int PORT = 8887;
@@ -14,6 +18,7 @@ public class ServerHooks {
     private Account account;
     private CashSlot cashSlot;
 
+    @Inject
     public ServerHooks(Account account, CashSlot cashSlot) {
         this.account = account;
         this.cashSlot = cashSlot;

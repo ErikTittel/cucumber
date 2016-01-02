@@ -16,13 +16,13 @@ public class ServerHooks {
         this.helper = helper;
     }
 
-    @Before
+    @Before("@web")
     public void startServer() throws Exception {
         server = new AtmServer(PORT, helper.getCashSlot(), helper.getMyAccount());
         server.start();
     }
 
-    @After
+    @After("@web")
     public void stopServer() throws Exception {
         server.stop();
     }

@@ -6,12 +6,12 @@ import cucumber.api.java.Before;
 
 public class SomeTestHooks {
 
-    @Before(value = "@hooked", order = 10)
+    @Before(value = "@simplelog", order = 10)
     public void beforeCallingScenario() {
         System.out.println("************** About to start the scenario.");
     }
 
-    @After(value = "@hooked", order = 10)
+    @After(value = "@simplelog", order = 10)
     public void afterRunningScenario(Scenario scenario) {
         System.out.println("************* Just finished running scenario: " + scenario.getName() + ", " + scenario
                 .getStatus());

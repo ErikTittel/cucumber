@@ -1,5 +1,5 @@
 Feature: Cash Withdrawal
-  @hooked
+  @simplelog
   Scenario: Successful withdrawal from an account in credit
     Given my account has been credited with $100.00
     When I withdraw $20

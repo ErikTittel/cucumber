@@ -13,7 +13,7 @@ public class WebDriverHooks {
         this.helper = helper;
     }
 
-    @After
+    @After("@web")
     public void finish(Scenario scenario) {
         try {
             byte[] screenshot = helper.getWebDriver().getScreenshotAs(OutputType.BYTES);

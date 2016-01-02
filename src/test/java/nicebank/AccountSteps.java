@@ -9,6 +9,8 @@ import cucumber.api.java.en.Then;
 import support.KnowsTheDomain;
 import transforms.MoneyConverter;
 
+import java.util.function.Supplier;
+
 public class AccountSteps {
 
     private final KnowsTheDomain helper;
@@ -18,13 +20,23 @@ public class AccountSteps {
     }
 
     @Given("^my account has been credited with (\\$\\d+\\.\\d+)$")
-    public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) {
+    public void myAccountHasBeenCreditedWith$(@Transform(MoneyConverter.class) Money amount) {
         helper.getMyAccount().credit(amount);
     }
 
     @Then("^the balance of my account should be (\\$\\d+\\.\\d+)$")
-    public void theBalanceOfMyAccountShouldBe$(@Transform(MoneyConverter.class) Money amount) {
-        assertThat(helper.getMyAccount().getBalance(), is(amount));
+    public void theBalanceOfMyAccountShouldBe$(@Transform(MoneyConverter.class) Money amount) throws
+            InterruptedException {
+        assertThatEventuallyEqual(helper.getMyAccount()::getBalance, amount, 3000, 50);
+    }
+
+    private void assertThatEventuallyEqual(Supplier<?> supplier, Object expected, int timeoutMilliSecs, int
+            pollIntervalMilliSecs) throws InterruptedException {
+        while (!supplier.get().equals(expected) && timeoutMilliSecs > 0) {
+            Thread.sleep(pollIntervalMilliSecs);
+            timeoutMilliSecs -= pollIntervalMilliSecs;
+        }
+        assertThat(supplier.get(), is(expected));
     }
 
 }

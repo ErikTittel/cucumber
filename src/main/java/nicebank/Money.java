@@ -13,6 +13,12 @@ public class Money {
     public Money() {
     }
 
+    public Money(String moneyAsText) {
+        String[] moneyParts = moneyAsText.replace("+", "").replace("-", "").split("\\.");
+        dollars = Integer.parseInt(moneyParts[0]);
+        cents = Integer.parseInt(moneyParts[1]);
+    }
+
     public Money add(Money amount) {
         int totalDollars = dollars + amount.dollars;
         int totalCents = cents + amount.cents;
@@ -56,6 +62,6 @@ public class Money {
 
     @Override
     public String toString() {
-        return "$" + dollars + '.' + cents;
+        return dollars + "." + cents;
     }
 }

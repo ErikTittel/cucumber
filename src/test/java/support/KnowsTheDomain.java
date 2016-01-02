@@ -1,7 +1,10 @@
 package support;
 
+import static support.TestLayer.WEB;
+
 import nicebank.Account;
 import nicebank.AtmUserInterface;
+import nicebank.AutomatedTeller;
 import nicebank.CashSlot;
 import nicebank.Teller;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -27,9 +30,13 @@ public class KnowsTheDomain {
         return cashSlot;
     }
 
-    public Teller getTeller() {
+    public Teller getTeller(TestLayer layer) {
         if (teller == null) {
-            teller = new AtmUserInterface(getWebDriver());
+            if (layer == WEB) {
+                teller = new AtmUserInterface(getWebDriver());
+            } else {
+                teller = new AutomatedTeller(getCashSlot());
+            }
         }
         return teller;
     }

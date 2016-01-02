@@ -6,16 +6,17 @@ import static org.hamcrest.Matchers.is;
 import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import support.KnowsTheDomain;
+import support.KnowsTheAccount;
+import support.KnowsTheCashSlot;
 import transforms.MoneyConverter;
 
 import java.util.function.Supplier;
 
 public class AccountSteps {
 
-    private final KnowsTheDomain helper;
+    private final KnowsTheAccount helper;
 
-    public AccountSteps(KnowsTheDomain helper) {
+    public AccountSteps(KnowsTheAccount helper) {
         this.helper = helper;
     }
 

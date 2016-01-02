@@ -4,13 +4,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import cucumber.api.java.en.Then;
-import support.KnowsTheDomain;
+import support.KnowsTheCashSlot;
 
 public class CashSlotSteps {
 
-    private final KnowsTheDomain helper;
+    private final KnowsTheCashSlot helper;
 
-    public CashSlotSteps(KnowsTheDomain helper) {
+    public CashSlotSteps(KnowsTheCashSlot helper) {
         this.helper = helper;
     }
 

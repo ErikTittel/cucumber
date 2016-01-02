@@ -3,19 +3,22 @@ package nicebank;
 import static support.TestLayer.BACKEND;
 
 import cucumber.api.java.en.When;
-import support.KnowsTheDomain;
+import support.KnowsTheAccount;
+import support.KnowsTheTeller;
 
 public class TellerSteps {
 
-    private final KnowsTheDomain helper;
+    private final KnowsTheAccount accountHelper;
+    private final KnowsTheTeller tellerHelper;
 
-    public TellerSteps(KnowsTheDomain helper) {
-        this.helper = helper;
+    public TellerSteps(KnowsTheAccount accountHelper, KnowsTheTeller tellerHelper) {
+        this.accountHelper = accountHelper;
+        this.tellerHelper = tellerHelper;
     }
 
     @When("^I withdraw \\$(\\d+)$")
     public void iWithdraw$(int dollars) throws Throwable {
-        helper.getTeller(BACKEND).withdrawFrom(helper.getMyAccount(), dollars);
+        tellerHelper.getTeller(BACKEND).withdrawFrom(accountHelper.getMyAccount(), dollars);
     }
 
 }

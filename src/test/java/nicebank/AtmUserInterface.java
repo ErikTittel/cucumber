@@ -2,13 +2,13 @@ package nicebank;
 
 import hooks.ServerHooks;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import support.MyWebDriver;
 
 public class AtmUserInterface implements Teller {
 
-    private WebDriver webDriver;
+    private MyWebDriver webDriver;
 
-    public AtmUserInterface(WebDriver webDriver) {
+    public AtmUserInterface(MyWebDriver webDriver) {
         this.webDriver = webDriver;
     }
 

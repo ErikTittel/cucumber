@@ -1,6 +1,6 @@
-Feature:
+Feature: Tic Tac Toe
 
-  Scenario:
+  Scenario: First round
     Given a board like this:
       |   | 1 | 2 | 3 |
       | 1 |   |   |   |

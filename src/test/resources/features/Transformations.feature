@@ -11,10 +11,29 @@ Feature: Transform input data
 
   Scenario: Object from table
     Given I have a fruit with the following details
-      | name | apple |
+      | name   | apple |
       | colour | green |
     When the fruit becomes ripe
     Then the colour is red.
 
-    # objects from strings
-    # doc strings
+  Scenario: Horizontal Table
+    Given I have the following list of fruit
+      | Name   | Weight In Grams |
+      | apple  | 350             |
+      | banana | 200             |
+    When the fruit gains weight
+    Then the fruit match the following details
+      | Name   | Weight In Grams |
+      | apple  | 500             |
+      | banana | 400             |
+
+  Scenario: Doc Strings
+    Given I have the following text
+    """
+    Hello
+    """
+    When I process the text
+    Then it should be equals to the following
+    """
+    World
+    """

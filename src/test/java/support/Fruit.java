@@ -1,6 +1,5 @@
 package support;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Fruit {
@@ -9,30 +8,11 @@ public class Fruit {
     private String colour;
     private int weightInGrams;
 
-    private Map<String, AttributeGetter> getterMap = new HashMap<>();
-
-    //    private Map<String, AttributeSetter> setterMap = new HashMap<>();
-    {
-        getterMap.put("name", this::getName);
-        getterMap.put("colour", this::getColour);
-        getterMap.put("weightInGrams", this::getWeightInGrams);
-
-//        setterMap.put("name", this::setName);
-//        setterMap.put("colour", this::setColour);
-    }
-
     public Fruit(String name, String colour, int weightInGrams) {
         this.name = name;
         this.colour = colour;
         this.weightInGrams = weightInGrams;
     }
-
-
-//    public Fruit(Map<String, String> fruitDescription) {
-//        for (String attributeName : fruitDescription.keySet()) {
-//            setterMap.get(attributeName).setValue(fruitDescription.get(attributeName));
-//        }
-//    }
 
     public static Fruit createFruit(Map<String, String> fruitDescription) {
         String name = fruitDescription.get("name");
@@ -41,15 +21,17 @@ public class Fruit {
     }
 
     public Object getValue(String attributeName) {
-        return getterMap.get(attributeName).getValue();
+        switch (attributeName) {
+            case "name": return getName();
+            case "colour": return getColour();
+            case "weightInGrams": return getWeightInGrams();
+            default:
+                throw new RuntimeException("unknown attribute: " + attributeName);
+        }
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getColour() {
@@ -64,6 +46,23 @@ public class Fruit {
         return weightInGrams;
     }
 
+    public void setWeightInGrams(int weightInGrams) {
+        this.weightInGrams = weightInGrams;
+    }
+
+    public void addWeight() {
+        switch (getName()) {
+            case "apple":
+                setWeightInGrams(getWeightInGrams() + 150);
+                break;
+            case "banana":
+                setWeightInGrams(getWeightInGrams() + 200);
+                break;
+            default:
+                throw new RuntimeException("unkown fruit");
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -71,32 +70,22 @@ public class Fruit {
 
         Fruit fruit = (Fruit) o;
 
-        return weightInGrams == fruit.weightInGrams && name.equals(fruit.name) && colour.equals(fruit.colour);
+        return weightInGrams == fruit.weightInGrams && name.equals(fruit.name) && (colour != null ? colour.equals
+                (fruit.colour) : fruit.colour == null);
 
     }
 
     @Override
     public int hashCode() {
         int result = name.hashCode();
-        result = 31 * result + colour.hashCode();
+        result = 31 * result + (colour != null ? colour.hashCode() : 0);
         result = 31 * result + weightInGrams;
         return result;
     }
 
     @Override
     public String toString() {
-        return "Fruit{" +
-                "name='" + name + '\'' +
-                ", colour='" + colour + '\'' +
-                '}';
+        return "Fruit{" + name + ", " + colour + ", " + weightInGrams + '}';
     }
 
-    private interface AttributeGetter {
-
-        Object getValue();
-    }
-
-//    private interface AttributeSetter {
-//        void setValue(String value);
-//    }
 }

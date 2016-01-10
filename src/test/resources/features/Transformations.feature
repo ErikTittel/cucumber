@@ -5,7 +5,10 @@ Feature: Transform input data
   I want to use Transformers to initialize real objects from simple text input.
 
   Scenario: Read list
-    Given the list of values: apple, banana, kiwi
+    Given the list of values:
+      | apple  |
+      | banana |
+      | kiwi   |
     When I read the list
     Then I should get: apple, banana, kiwi
 

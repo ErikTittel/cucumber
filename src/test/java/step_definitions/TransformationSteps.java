@@ -21,7 +21,7 @@ public class TransformationSteps {
     private List<Fruit> fruitList;
     private Fruit fruit;
 
-    @Given("^the list of values: (.*)$")
+    @Given("^the list of values:$")
     public void theListOfValues(List<String> words) {
         fruitNames = words;
     }

@@ -1,7 +1,6 @@
 package nicebank;
 
 import cucumber.api.java.en.When;
-import support.AtmUserInterface;
 
 import javax.inject.Inject;
 

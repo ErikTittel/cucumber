@@ -1,2 +1,2 @@
-# cucumber
-playing with cucumber
+# Cucumber playground
+playing with cucumber and BDD

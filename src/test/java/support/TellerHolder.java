@@ -3,7 +3,6 @@ package support;
 import nicebank.AutomatedTeller;
 import nicebank.Teller;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -12,7 +11,6 @@ public class TellerHolder {
 
     @Inject
     private AtmUserInterface atmUserInterface;
-
     @Inject
     private AutomatedTeller automatedTeller;
 

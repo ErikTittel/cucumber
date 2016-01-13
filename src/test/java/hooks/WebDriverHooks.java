@@ -4,8 +4,8 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.OutputType;
-import support.MyWebDriver;
 import support.TellerHolder;
+import support.WebDriverHolder;
 
 import javax.inject.Inject;
 
@@ -15,23 +15,23 @@ public class WebDriverHooks {
     private TellerHolder tellerHolder;
 
     @Inject
-    private MyWebDriver webDriver;
+    private WebDriverHolder helper;
 
     @Before("@web")
     public void setWebTeller() {
         tellerHolder.setWeb(true);
     }
 
-//    @After("@web")
-//    public void finish(Scenario scenario) {
-//        try {
-//            byte[] screenshot = webDriver.getScreenshotAs(OutputType.BYTES);
-//            scenario.embed(screenshot, "image/png");
-//        } catch (Exception somePlatformsDontSupportScreenshots) {
-//            System.err.println(somePlatformsDontSupportScreenshots.getMessage());
-//        } finally {
-//            webDriver.close();
-//        }
-//    }
+    @After("@web")
+    public void finish(Scenario scenario) {
+        try {
+            byte[] screenshot = helper.getMyWebDriver().getScreenshotAs(OutputType.BYTES);
+            scenario.embed(screenshot, "image/png");
+        } catch (Exception somePlatformsDontSupportScreenshots) {
+            System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+        } finally {
+            helper.getMyWebDriver().close();
+        }
+    }
 
 }

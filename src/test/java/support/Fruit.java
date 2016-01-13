@@ -59,7 +59,7 @@ public class Fruit {
                 setWeightInGrams(getWeightInGrams() + 200);
                 break;
             default:
-                throw new RuntimeException("unkown fruit");
+                throw new RuntimeException("unknown fruit");
         }
     }
 

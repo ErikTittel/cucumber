@@ -12,10 +12,11 @@ import javax.inject.Singleton;
 public class AtmUserInterface implements Teller {
 
     @Inject
-    private MyWebDriver webDriver;
+    private WebDriverHolder helper;
 
     @Override
     public void withdrawFrom(Account account, int dollars) {
+        MyWebDriver webDriver = helper.getMyWebDriver();
         try {
             webDriver.get("http://localhost:" + AtmServer.PORT);
             webDriver.findElement(By.id("amount")).sendKeys(String.valueOf(dollars));

@@ -10,9 +10,9 @@ import cucumber.api.java.en.*;
 import java.util.Map;
 import java.util.HashMap;
 
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 
-@Singleton
+@ApplicationScoped
 public class CheckoutSteps {
 
     private Checkout checkout = new Checkout();

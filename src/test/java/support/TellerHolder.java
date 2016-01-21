@@ -4,9 +4,9 @@ import nicebank.AutomatedTeller;
 import nicebank.Teller;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 
-@Singleton
+@ApplicationScoped
 public class TellerHolder {
 
     @Inject

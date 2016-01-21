@@ -1,8 +1,8 @@
 package nicebank;
 
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 
-@Singleton
+@ApplicationScoped
 public class CashSlot {
 
     private int contents;

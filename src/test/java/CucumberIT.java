@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features/"},
         glue = {"nicebank", "hooks", "step_definitions"},
         tags = {"~@wip"},
-        plugin = {"progress", "html:target/cucumber", "json:target/cucumber.json"},
+        plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
         snippets = SnippetType.CAMELCASE,
         strict = false)
 public class CucumberIT {

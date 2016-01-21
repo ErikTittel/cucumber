@@ -12,9 +12,9 @@ import support.Fruit;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 
-@Singleton
+@ApplicationScoped
 public class TransformationSteps {
 
     private List<String> fruitNames;

@@ -1,9 +1,9 @@
 package nicebank;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 
-@Singleton
+@ApplicationScoped
 public class AutomatedTeller implements Teller {
 
     @Inject

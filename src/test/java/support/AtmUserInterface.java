@@ -6,9 +6,9 @@ import nicebank.Teller;
 import org.openqa.selenium.By;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 
-@Singleton
+@ApplicationScoped
 public class AtmUserInterface implements Teller {
 
     @Inject

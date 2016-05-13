@@ -13,7 +13,7 @@ public class AtmServer {
 
     private Server server;
     @Inject
-    private AtmServlet atmServlet;
+    private ATMServlet atmServlet;
     @Inject
     private WithdrawalServlet withdrawalServlet;
 
